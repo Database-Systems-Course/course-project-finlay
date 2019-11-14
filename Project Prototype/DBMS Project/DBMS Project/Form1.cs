@@ -16,5 +16,16 @@ namespace DBMS_Project
         {
             InitializeComponent();
         }
+        Form f2 = new Form();
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RadioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
