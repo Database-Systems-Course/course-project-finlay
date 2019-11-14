@@ -16,7 +16,6 @@ namespace DBMS_Project
         {
             InitializeComponent();
         }
-        Form f2 = new Form();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -82,6 +81,33 @@ namespace DBMS_Project
         private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.MaxLength = 4;
+           
+        }
+        
+
+        private void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            textBox3.MaxLength = 4;
+        }
+
+        private void CheckBox4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox4_TextChanged(object sender, EventArgs e)
+        {
+            textBox4.MaxLength = 7;
+        }
+
+        private void TextBox5_TextChanged(object sender, EventArgs e)
+        {
+            textBox5.MaxLength = 7;
         }
     }
 }
