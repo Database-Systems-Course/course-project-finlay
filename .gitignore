@@ -22,3 +22,4 @@ Project Prototype/DBMS Project/.vs/DBMS Project/v16/TestStore/0/testlog.manifest
 Project Prototype/DBMS Project/.vs/DBMS Project/v16/TestStore/0/000-0000.testlog
 Project Prototype/DBMS Project/DBMS Project/bin/Debug/DBMS Project.exe
 *.resources
+*.pdb
