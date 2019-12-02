@@ -24,7 +24,7 @@ GO
 
 CREATE TABLE Car (
   RegistratonID INTEGER  NOT NULL   IDENTITY ,
-  RegistrationYear YEAR  NOT NULL  ,
+  RegistrationYear INTEGER  NOT NULL  ,
   Make VARCHAR  NOT NULL  ,
   Model VARCHAR  NOT NULL  ,
   Price INTEGER      ,
@@ -58,16 +58,16 @@ CREATE TABLE Has_Features (
   EngineType VARCHAR  NOT NULL  ,
   Transmission VARCHAR  NOT NULL  ,
   SeatingCapacity INTEGER  NOT NULL  ,
-  Airbags BOOL    ,
-  ABS BOOL    ,
-  AC BOOL    ,
-  PowerLocks BOOL    ,
-  PowerWindows BOOL    ,
-  PowerSteering BOOL    ,
-  PaddleShifters BOOL    ,
-  Infotainment BOOL    ,
-  Sunroof BOOL    ,
-  FM/AM BOOL      ,
+  Airbags INTEGER    ,
+  [ABS] INTEGER    ,
+  AC INTEGER    ,
+  PowerLocks INTEGER    ,
+  PowerWindows INTEGER    ,
+  PowerSteering INTEGER    ,
+  PaddleShifters INTEGER    ,
+  Infotainment INTEGER    ,
+  Sunroof INTEGER    ,
+  [FM/AM] INTEGER      ,
 PRIMARY KEY(Car_RegistratonID)  ,
   FOREIGN KEY(Car_RegistratonID)
     REFERENCES Car(RegistratonID));
@@ -88,7 +88,7 @@ CREATE TABLE Transactions (
   Customer_CustomerID INTEGER  NOT NULL  ,
   Car_RegistratonID INTEGER  NOT NULL  ,
   Price INTEGER    ,
-  isInsured BOOL    ,
+  isInsured INTEGER    ,
   AmountPaid INTEGER    ,
   DateBought DATE    ,
   AmountDue INTEGER    ,
@@ -145,7 +145,7 @@ CREATE TABLE Lease (
   Transactions_CustomerID INTEGER  NOT NULL  ,
   Transactions_RegistrationID INTEGER  NOT NULL  ,
   Car_RegistratonID INTEGER  NOT NULL  ,
-  isLeased BOOL    ,
+  isLeased INTEGER    ,
   DownPayment INTEGER    ,
   Installments INTEGER    ,
   DateBought DATE    ,
@@ -160,7 +160,7 @@ GO
 
 CREATE INDEX Lease_FKIndex2 ON Lease (Car_RegistratonID);
 GO
-CREATE INDEX Lease_FKIndex2 ON Lease (Transactions_RegistrationID, Transactions_CustomerID);
+CREATE INDEX Lease_FKIndex3 ON Lease (Transactions_RegistrationID, Transactions_CustomerID);
 GO
 
 
