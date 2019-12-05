@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DBMS_Project
@@ -31,10 +32,7 @@ namespace DBMS_Project
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form1 form1 = new Form1();
-            form1.ShowDialog();
-            
+            this.Hide();            
         }
     }
 }
