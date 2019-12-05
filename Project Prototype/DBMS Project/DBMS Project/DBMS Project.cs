@@ -156,5 +156,10 @@ namespace DBMS_Project
                 e.Handled = true;
             }
         }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
