@@ -133,9 +133,10 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 86);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Displacement:";
+            this.label6.Text = "Fuel:";
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // label5
             // 
