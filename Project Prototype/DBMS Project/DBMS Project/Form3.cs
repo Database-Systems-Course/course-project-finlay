@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DBMS_Project
 {
-    public partial class Form3 : Form
+    public partial class SignUp : Form
     {
-        public Form3()
+        public SignUp()
         {
             InitializeComponent();
         }
