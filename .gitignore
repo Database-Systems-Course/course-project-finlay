@@ -23,4 +23,9 @@ Project Prototype/DBMS Project/.vs/DBMS Project/v16/TestStore/0/000-0000.testlog
 Project Prototype/DBMS Project/DBMS Project/bin/Debug/DBMS Project.exe
 *.resources
 *.pdb
+<<<<<<< HEAD
+*.cache
+=======
+/Project Prototype/DBMS Project/.vs/DBMS Project/v15/Server/sqlite3/db.lock
+>>>>>>> 239ccc0ebd7288d7cbb26dc06400ceb8644d8093
 *.cache
