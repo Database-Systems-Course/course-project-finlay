@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace DBMS_Project
@@ -16,23 +15,6 @@ namespace DBMS_Project
         public Form2()
         {
             InitializeComponent();
-            password.PasswordChar = '*';
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            textBox1.MaxLength = 50;
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-            password.MaxLength = 16;
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();            
         }
     }
 }
