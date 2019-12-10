@@ -35,8 +35,8 @@ namespace DBMS_Project
             this.makelbl = new System.Windows.Forms.Label();
             this.modeltxt = new System.Windows.Forms.TextBox();
             this.maketxt = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.trantype = new System.Windows.Forms.ComboBox();
+            this.fueltype = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@ namespace DBMS_Project
             this.label4 = new System.Windows.Forms.Label();
             this.maxprice = new System.Windows.Forms.TextBox();
             this.minprice = new System.Windows.Forms.TextBox();
-            this.amfm = new System.Windows.Forms.CheckBox();
+            this.fmam = new System.Windows.Forms.CheckBox();
             this.infotain = new System.Windows.Forms.CheckBox();
             this.sunroof = new System.Windows.Forms.CheckBox();
             this.absbrakes = new System.Windows.Forms.CheckBox();
@@ -64,27 +64,17 @@ namespace DBMS_Project
             this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.carBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.projectDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            //this.projectDataSet1 = new DBMS_Project.ProjectDataSet1();
             this.carBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
-            //this.carTableAdapter = new DBMS_Project.ProjectDataSet1TableAdapters.CarTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            
             this.carBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
-
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSetBindingSource)).BeginInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,8 +84,8 @@ namespace DBMS_Project
             this.groupBox1.Controls.Add(this.makelbl);
             this.groupBox1.Controls.Add(this.modeltxt);
             this.groupBox1.Controls.Add(this.maketxt);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.trantype);
+            this.groupBox1.Controls.Add(this.fueltype);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -103,7 +93,7 @@ namespace DBMS_Project
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.maxprice);
             this.groupBox1.Controls.Add(this.minprice);
-            this.groupBox1.Controls.Add(this.amfm);
+            this.groupBox1.Controls.Add(this.fmam);
             this.groupBox1.Controls.Add(this.infotain);
             this.groupBox1.Controls.Add(this.sunroof);
             this.groupBox1.Controls.Add(this.absbrakes);
@@ -161,29 +151,30 @@ namespace DBMS_Project
             this.maketxt.TextChanged += new System.EventHandler(this.TextBox2_TextChanged_1);
             this.maketxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Maketxt_KeyPress);
             // 
-            // comboBox2
+            // trantype
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.trantype.FormattingEnabled = true;
+            this.trantype.Items.AddRange(new object[] {
             "Automatic",
             "Manual"});
-            this.comboBox2.Location = new System.Drawing.Point(80, 151);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 36;
+            this.trantype.Location = new System.Drawing.Point(80, 151);
+            this.trantype.Name = "trantype";
+            this.trantype.Size = new System.Drawing.Size(121, 21);
+            this.trantype.TabIndex = 36;
+            this.trantype.SelectedIndexChanged += new System.EventHandler(this.trantype_SelectedIndexChanged);
             // 
-            // comboBox1
+            // fueltype
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.fueltype.FormattingEnabled = true;
+            this.fueltype.Items.AddRange(new object[] {
             "Petrol",
             "CNG",
             "Diesel"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 125);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 35;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.fueltype.Location = new System.Drawing.Point(80, 125);
+            this.fueltype.Name = "fueltype";
+            this.fueltype.Size = new System.Drawing.Size(121, 21);
+            this.fueltype.TabIndex = 35;
+            this.fueltype.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -250,16 +241,16 @@ namespace DBMS_Project
             this.minprice.TextChanged += new System.EventHandler(this.TextBox4_TextChanged);
             this.minprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox4_KeyPress);
             // 
-            // amfm
+            // fmam
             // 
-            this.amfm.AutoSize = true;
-            this.amfm.Location = new System.Drawing.Point(5, 390);
-            this.amfm.Name = "amfm";
-            this.amfm.Size = new System.Drawing.Size(62, 17);
-            this.amfm.TabIndex = 25;
-            this.amfm.Text = "FM/AM";
-            this.amfm.UseVisualStyleBackColor = true;
-            this.amfm.CheckedChanged += new System.EventHandler(this.CheckBox12_CheckedChanged);
+            this.fmam.AutoSize = true;
+            this.fmam.Location = new System.Drawing.Point(5, 390);
+            this.fmam.Name = "fmam";
+            this.fmam.Size = new System.Drawing.Size(62, 17);
+            this.fmam.TabIndex = 25;
+            this.fmam.Text = "FM/AM";
+            this.fmam.UseVisualStyleBackColor = true;
+            this.fmam.CheckedChanged += new System.EventHandler(this.CheckBox12_CheckedChanged);
             // 
             // infotain
             // 
@@ -270,6 +261,7 @@ namespace DBMS_Project
             this.infotain.TabIndex = 24;
             this.infotain.Text = "Infotainment";
             this.infotain.UseVisualStyleBackColor = true;
+            this.infotain.CheckedChanged += new System.EventHandler(this.infotain_CheckedChanged);
             // 
             // sunroof
             // 
@@ -280,6 +272,7 @@ namespace DBMS_Project
             this.sunroof.TabIndex = 23;
             this.sunroof.Text = "Sunroof";
             this.sunroof.UseVisualStyleBackColor = true;
+            this.sunroof.CheckedChanged += new System.EventHandler(this.sunroof_CheckedChanged);
             // 
             // absbrakes
             // 
@@ -312,6 +305,7 @@ namespace DBMS_Project
             this.pshifter.TabIndex = 20;
             this.pshifter.Text = "Paddle Shifters";
             this.pshifter.UseVisualStyleBackColor = true;
+            this.pshifter.CheckedChanged += new System.EventHandler(this.pshifter_CheckedChanged);
             // 
             // psteer
             // 
@@ -322,6 +316,7 @@ namespace DBMS_Project
             this.psteer.TabIndex = 19;
             this.psteer.Text = "Power Steering";
             this.psteer.UseVisualStyleBackColor = true;
+            this.psteer.CheckedChanged += new System.EventHandler(this.psteer_CheckedChanged);
             // 
             // pwindows
             // 
@@ -332,6 +327,7 @@ namespace DBMS_Project
             this.pwindows.TabIndex = 18;
             this.pwindows.Text = "Power Windows";
             this.pwindows.UseVisualStyleBackColor = true;
+            this.pwindows.CheckedChanged += new System.EventHandler(this.pwindows_CheckedChanged);
             // 
             // plock
             // 
@@ -353,6 +349,7 @@ namespace DBMS_Project
             this.ac.TabIndex = 16;
             this.ac.Text = "AC";
             this.ac.UseVisualStyleBackColor = true;
+            this.ac.CheckedChanged += new System.EventHandler(this.ac_CheckedChanged);
             // 
             // maxyear
             // 
@@ -414,72 +411,23 @@ namespace DBMS_Project
             // 
             this.carBindingSource2.DataMember = "Car";
             // 
-            // projectDataSet1
-            // 
-
-
-            // 
             // carBindingSource3
             // 
             this.carBindingSource3.DataMember = "Car";
-
-            // 
-            // carTableAdapter
-            // 
-
             // 
             // dataGridView2
             // 
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
             this.dataGridView2.DataSource = this.carBindingSource4;
             this.dataGridView2.Location = new System.Drawing.Point(241, 12);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(447, 407);
             this.dataGridView2.TabIndex = 9;
             // 
-            // projectDataSet2
-            // 
-            //this.projectDataSet2.DataSetName = "ProjectDataSet2";
-            //this.projectDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // carBindingSource4
             // 
             this.carBindingSource4.DataMember = "Car";
-
-            // 
-            // carTableAdapter1
-            // 
-            //this.carTableAdapter1.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "RegistrationYear";
-            this.dataGridViewTextBoxColumn5.HeaderText = "RegistrationYear";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Make";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Make";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Model";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Model";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // Form1
             // 
@@ -500,10 +448,8 @@ namespace DBMS_Project
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSetBindingSource)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.projectDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource4)).EndInit();
             this.ResumeLayout(false);
 
@@ -517,7 +463,7 @@ namespace DBMS_Project
         private System.Windows.Forms.Button searchbtn;
         private System.Windows.Forms.TextBox maxyear;
         private System.Windows.Forms.TextBox minyear;
-        private System.Windows.Forms.CheckBox amfm;
+        private System.Windows.Forms.CheckBox fmam;
         private System.Windows.Forms.CheckBox infotain;
         private System.Windows.Forms.CheckBox sunroof;
         private System.Windows.Forms.CheckBox absbrakes;
@@ -553,8 +499,8 @@ namespace DBMS_Project
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.TextBox modeltxt;
         private System.Windows.Forms.TextBox maketxt;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox trantype;
+        private System.Windows.Forms.ComboBox fueltype;
         private System.Windows.Forms.Label modellbl;
         private System.Windows.Forms.Label makelbl;
         private System.Windows.Forms.BindingSource projectDataSetBindingSource;
