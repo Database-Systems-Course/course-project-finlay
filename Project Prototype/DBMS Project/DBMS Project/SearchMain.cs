@@ -12,7 +12,27 @@ using System.Windows.Forms;
 namespace DBMS_Project
 {
     public partial class Form1 : Form
+
     {
+        string makevar;
+        string modelvar;
+        int minyearvar;
+        int maxyearvar;
+        int minpricevar;
+        int maxpricevar;
+        string fueltypevar;
+        string trantypevar;
+        int acvar;
+        int plockvar;
+        int pwindowsvar;
+        int psteervar;
+        int pshiftervar;
+        int airbagvar;
+        int absbrakesvar;
+        int sunroofvar;
+        int infotainvar;
+        int fmamvar;
+
         public Form1()
         {
             InitializeComponent();
@@ -43,9 +63,9 @@ namespace DBMS_Project
         }
         private void Button3_Click(object sender, EventArgs e)
         {
-            DBconnectioncs c = new DBconnectioncs(); 
-            DataTable d = c.Select("Select * from Car");
-            //searchbtn.DataSource = d;
+            DBconnectioncs c = new DBconnectioncs();
+            DataTable d = c.Select("Select Car.RegistrationYear, Car.Make, Car.Model, Car.Price from Car,[Has_Features] where Car.Make = " + makevar + " and Car.Model = " + modelvar + " and Car.RegistrationYear between " + minyearvar + " and " + maxyearvar + " and Car.Price between " + minpricevar + " and " + maxpricevar + " and Has_Features.[Car_RegistrationID] = Car.RegistrationID and Has_Features.AC = " + acvar + " and Has_Features.PowerSteering = " + psteervar + " and Has_Features.PowerLocks = " + plockvar + " and Has_Features.PowerWindows = " + pwindowsvar + " and Has_Features.PaddleShifters = " + pshiftervar + " and Has_Features.Airbags = " + airbagvar + " and Has_Features.ABS = " + absbrakesvar + " and Has_Features.Sunroof = " + sunroofvar + " and Has_Features.Infotainment = " + infotainvar + " and Has_Features.[FM/AM] = " + fmamvar + ";");
+            dataGridView2.DataSource = d;
         }
         
         private void TextBox2_TextChanged(object sender, EventArgs e)
@@ -62,7 +82,14 @@ namespace DBMS_Project
 
         private void CheckBox4_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (plock.Checked)
+            {
+                plockvar = 1;
+            }
+            else
+            {
+                plockvar = 0;
+            }
         }
 
         private void TextBox4_TextChanged(object sender, EventArgs e)
@@ -85,7 +112,14 @@ namespace DBMS_Project
 
         private void CheckBox12_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (fmam.Checked)
+            {
+                fmamvar = 1;
+            }
+            else
+            {
+                fmamvar = 0;
+            }
         }
 
         
@@ -106,6 +140,8 @@ namespace DBMS_Project
             {
                 e.Handled = true;
             }
+
+            minpricevar = Convert.ToInt32(minprice.Text);
         }
 
         private void TextBox5_KeyPress(object sender, KeyPressEventArgs e)
@@ -115,6 +151,7 @@ namespace DBMS_Project
             {
                 e.Handled = true;
             }
+            maxpricevar = Convert.ToInt32(maxyear.Text);
         }
 
         private void TextBox3_KeyPress(object sender, KeyPressEventArgs e)
@@ -124,6 +161,8 @@ namespace DBMS_Project
             {
                 e.Handled = true;
             }
+            maxyearvar = Convert.ToInt32(maxyear.Text);
+
         }
 
         private void TextBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -132,6 +171,12 @@ namespace DBMS_Project
             if (!char.IsDigit(ch) && ch != 8)
             {
                 e.Handled = true;
+            }
+
+            string temp = minyear.Text;
+            if (temp.Length== 4)
+            {
+                minyearvar = Convert.ToInt32(minyear.Text);
             }
         }
 
@@ -147,6 +192,8 @@ namespace DBMS_Project
             {
                 e.Handled = true;
             }
+
+            maxyearvar = Convert.ToInt32(maxyear.Text);
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,24 +232,36 @@ namespace DBMS_Project
 
         private void Absbrakes_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (absbrakes.Checked)
+            {
+                absbrakesvar = 1;
+            }
+            else
+            {
+                absbrakesvar = 0;
+            }
         }
 
         private void Airbag_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (airbag.Checked)
+            {
+                airbagvar = 1;
+            }
+            else
+            {
+                airbagvar = 0;
+            }
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            fueltypevar = fueltype.Text;
         }
 
         private void TextBox2_TextChanged_1(object sender, EventArgs e)
         {
-            maketxt.MaxLength = 15;
-
-            
+            maketxt.MaxLength = 15;         
         }
 
         private void Modeltxt_TextChanged(object sender, EventArgs e)
@@ -213,10 +272,11 @@ namespace DBMS_Project
         private void Modeltxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (!char.IsLetter(l) && l != 8)
+            if (!char.IsLetter(l) && l != 8 && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }
+            modelvar = modeltxt.Text;
         }
 
         private void Maketxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -225,6 +285,86 @@ namespace DBMS_Project
             if (!char.IsLetter(l) && l != 8 && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
+                makevar = maketxt.Text;
+            }
+
+            
+        }
+
+        private void trantype_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            trantypevar = trantype.Text;
+        }
+
+        private void ac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ac.Checked)
+            {
+                acvar = 1;
+            }
+            else
+            {
+                acvar = 0;
+            }
+        }
+
+        private void pwindows_CheckedChanged(object sender, EventArgs e)
+        {
+            if (pwindows.Checked)
+            {
+                pwindowsvar = 1;
+            }
+            else
+            {
+                pwindowsvar = 0;
+            }
+        }
+
+        private void psteer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (psteer.Checked)
+            {
+                psteervar = 1;
+            }
+            else
+            {
+                psteervar = 0;
+            }
+        }
+
+        private void pshifter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (plock.Checked)
+            {
+                pshiftervar = 1;
+            }
+            else
+            {
+                pshiftervar = 0;
+            }
+        }
+
+        private void sunroof_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sunroof.Checked)
+            {
+                sunroofvar = 1;
+            }
+            else
+            {
+                sunroofvar = 0;
+            }
+        }
+
+        private void infotain_CheckedChanged(object sender, EventArgs e)
+        {
+            if (infotain.Checked)
+            {
+                infotainvar = 1;
+            }
+            else
+            {
+                infotainvar = 0;
             }
         }
     }
