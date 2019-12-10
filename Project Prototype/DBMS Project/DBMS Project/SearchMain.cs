@@ -63,8 +63,8 @@ namespace DBMS_Project
         }
         private void Button3_Click(object sender, EventArgs e)
         {
-            DBconnectioncs c = new DBconnectioncs(); 
-            DataTable d = c.Select("Select Car.RegistrationID, from Car");
+            DBconnectioncs c = new DBconnectioncs();
+            DataTable d = c.Select("Select Car.RegistrationYear, Car.Make, Car.Model,Car.Price from Car,Has_Features where Car.Make = '" + makevar + "' and Car.Model = '" + modelvar + "' and Car.RegistrationYear between" + minyearvar + "'and '" + maxyearvar + "' and Car.Price between" + minpricevar + "'and '" + maxpricevar + "' and HasFeatures.Car_RegistrationID = Car.RegistrationID and HasFeatures.AC = '" + acvar + "'and HasFeatures.PowerLocks = '" + plockvar + "'and HasFeatures.PowerWindows = '" + pwindowsvar + "'and HasFeatures.PaddleShifters = '" + pshiftervar + "'and HasFeatures.Airbags = '" + airbagvar + "'and HasFeatures.ABS = '" + absbrakesvar + "'and HasFeatures.Sunroof= '" + sunroofvar + "'and HasFeatures.Infotainment = '" + infotainvar + "'and HasFeatures.[FM/AM] = '" + fmamvar + "';'");
             dataGridView2.DataSource = d;
         }
         
