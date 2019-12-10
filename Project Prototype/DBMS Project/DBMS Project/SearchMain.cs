@@ -64,7 +64,7 @@ namespace DBMS_Project
         private void Button3_Click(object sender, EventArgs e)
         {
             DBconnectioncs c = new DBconnectioncs();
-            DataTable d = c.Select("Select Car.RegistrationYear, Car.Make, Car.Model, Car.Price from Car,[Has_Features] where Car.Make = " + makevar + " and Car.Model = " + modelvar + " and Car.RegistrationYear between " + minyearvar + " and " + maxyearvar + " and Car.Price between " + minpricevar + " and " + maxpricevar + " and Has_Features.[Car_RegistrationID] = Car.RegistrationID and Has_Features.AC = " + acvar + " and Has_Features.PowerSteering = " + psteervar + " and Has_Features.PowerLocks = " + plockvar + " and Has_Features.PowerWindows = " + pwindowsvar + " and Has_Features.PaddleShifters = " + pshiftervar + " and Has_Features.Airbags = " + airbagvar + " and Has_Features.ABS = " + absbrakesvar + " and Has_Features.Sunroof = " + sunroofvar + " and Has_Features.Infotainment = " + infotainvar + " and Has_Features.[FM/AM] = " + fmamvar + ";");
+            DataTable d = c.Select("Select Car.RegistrationYear, Car.Make, Car.Model, Car.Price from Car,[Has_Features] where Car.Make = " + makevar + " and has_features.Fuel = "+ fueltype+ " and has_features.transmission = "+ trantype+" and Car.Model = " + modelvar + " and Car.RegistrationYear between " + minyearvar + " and " + maxyearvar + " and Car.Price between " + minpricevar + " and " + maxpricevar + " and Has_Features.[Car_RegistrationID] = Car.RegistrationID and Has_Features.AC = " + acvar + " and Has_Features.PowerSteering = " + psteervar + " and Has_Features.PowerLocks = " + plockvar + " and Has_Features.PowerWindows = " + pwindowsvar + " and Has_Features.PaddleShifters = " + pshiftervar + " and Has_Features.Airbags = " + airbagvar + " and Has_Features.[ABS] = " + absbrakesvar + " and Has_Features.Sunroof = " + sunroofvar + " and Has_Features.Infotainment = " + infotainvar + " and Has_Features.[FM/AM] = " + fmamvar + ";");
             dataGridView2.DataSource = d;
         }
         
@@ -94,13 +94,13 @@ namespace DBMS_Project
 
         private void TextBox4_TextChanged(object sender, EventArgs e)
         {
-            minprice.MaxLength = 7;
+            minprice.MaxLength = 15;
             
         }
 
         private void TextBox5_TextChanged(object sender, EventArgs e)
         {
-            maxprice.MaxLength = 7;
+            maxprice.MaxLength = 15;
         }
 
         
@@ -139,9 +139,10 @@ namespace DBMS_Project
             if (!char.IsDigit(ch) && ch != 8)
             {
                 e.Handled = true;
+                minpricevar = Convert.ToInt32(minprice.Text);
             }
 
-            minpricevar = Convert.ToInt32(minprice.Text);
+            
         }
 
         private void TextBox5_KeyPress(object sender, KeyPressEventArgs e)
@@ -150,8 +151,9 @@ namespace DBMS_Project
             if (!char.IsDigit(ch) && ch != 8)
             {
                 e.Handled = true;
+                maxpricevar = Convert.ToInt32(maxyear.Text);
             }
-            maxpricevar = Convert.ToInt32(maxyear.Text);
+            
         }
 
         private void TextBox3_KeyPress(object sender, KeyPressEventArgs e)
@@ -160,8 +162,9 @@ namespace DBMS_Project
             if (!char.IsDigit(ch) && ch != 8)
             {
                 e.Handled = true;
+                maxyearvar = Convert.ToInt32(maxyear.Text);
             }
-            maxyearvar = Convert.ToInt32(maxyear.Text);
+            
 
         }
 
@@ -272,7 +275,7 @@ namespace DBMS_Project
         private void Modeltxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (!char.IsLetter(l) && l != 8 && !char.IsWhiteSpace(e.KeyChar))
+            if ((!char.IsLetter(l) && !char.IsDigit(l)) && l != 8 && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }
