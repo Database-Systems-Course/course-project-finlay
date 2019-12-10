@@ -12,7 +12,27 @@ using System.Windows.Forms;
 namespace DBMS_Project
 {
     public partial class Form1 : Form
+
     {
+        string makevar;
+        string modelvar;
+        int minyearvar;
+        int maxyearvar;
+        int priceMinvar;
+        int priceMaxvar;
+        string fueltypevar;
+        string trantypevar;
+        int acvar;
+        int plocksvar;
+        int pwindowsvar;
+        int psteervar;
+        int paddleshiftersvar;
+        int airbagsvar;
+        int absvar;
+        int sunroofvar;
+        int infovar;
+        int fmamvar;
+
         public Form1()
         {
             InitializeComponent();
@@ -45,7 +65,7 @@ namespace DBMS_Project
         {
             DBconnectioncs c = new DBconnectioncs(); 
             DataTable d = c.Select("Select * from Car");
-            //searchbtn.DataSource = d;
+            dataGridView2.DataSource = d;
         }
         
         private void TextBox2_TextChanged(object sender, EventArgs e)
@@ -133,6 +153,12 @@ namespace DBMS_Project
             {
                 e.Handled = true;
             }
+
+            string temp = minyear.Text;
+            if (temp.Length== 4)
+            {
+                minyearvar = Convert.ToInt32(minyear.Text);
+            }
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -200,9 +226,7 @@ namespace DBMS_Project
 
         private void TextBox2_TextChanged_1(object sender, EventArgs e)
         {
-            maketxt.MaxLength = 15;
-
-            
+            maketxt.MaxLength = 15;         
         }
 
         private void Modeltxt_TextChanged(object sender, EventArgs e)
@@ -213,10 +237,11 @@ namespace DBMS_Project
         private void Modeltxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             char l = e.KeyChar;
-            if (!char.IsLetter(l) && l != 8)
+            if (!char.IsLetter(l) && l != 8 && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }
+            modelvar = modeltxt.Text;
         }
 
         private void Maketxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -226,6 +251,8 @@ namespace DBMS_Project
             {
                 e.Handled = true;
             }
+
+            makevar = maketxt.Text;
         }
     }
 }
