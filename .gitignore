@@ -34,3 +34,4 @@ Project Prototype/DBMS Project/DBMS Project/bin/Debug/DBMS Project.exe
 *.ide-wal
 Project Prototype/DBMS Project/.vs/DBMS Project/v16/.suo
 Project Prototype/DBMS Project/.vs/DBMS Project/v16/.suo
+*.cache
