@@ -34,9 +34,9 @@ namespace DBMS_Project
             conn.Open();
             cmd.CommandText = query;
             cmd.Connection = conn;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            SqlDataAdapter dg = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
-            da.Fill(dt);
+            dg.Fill(dt);
             conn.Close();
             return dt;
         }
