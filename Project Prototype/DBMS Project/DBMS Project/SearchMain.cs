@@ -64,13 +64,14 @@ namespace DBMS_Project
         private void Button3_Click(object sender, EventArgs e)
         {
             DBconnectioncs c = new DBconnectioncs();
-            DataTable d = c.Select("Select Car.RegistrationYear, Car.Make, Car.Model, Car.Price from Car,[Has_Features] where Car.Make = " + makevar + " and has_features.Fuel = "+ fueltype+ " and has_features.transmission = "+ trantype+" and Car.Model = " + modelvar + " and Car.RegistrationYear between " + minyearvar + " and " + maxyearvar + " and Car.Price between " + minpricevar + " and " + maxpricevar + " and Has_Features.[Car_RegistrationID] = Car.RegistrationID and Has_Features.AC = " + acvar + " and Has_Features.PowerSteering = " + psteervar + " and Has_Features.PowerLocks = " + plockvar + " and Has_Features.PowerWindows = " + pwindowsvar + " and Has_Features.PaddleShifters = " + pshiftervar + " and Has_Features.Airbags = " + airbagvar + " and Has_Features.[ABS] = " + absbrakesvar + " and Has_Features.Sunroof = " + sunroofvar + " and Has_Features.Infotainment = " + infotainvar + " and Has_Features.[FM/AM] = " + fmamvar + ";");
+            DataTable d = c.Select("Select Car.RegistrationYear, Car.Make, Car.Model, Car.Price from Car,Has_Features where (Car.Make = " + makevar + ") and (has_features.Fuel = "+ fueltype + ") and (has_features.transmission = "+trantype+") and (Car.Model = " + modelvar + ") and (Car.RegistrationYear between " + minyearvar + " and " + maxyearvar + ") and (Car.Price between " + minpricevar + " and " + maxpricevar + " and (Has_Features.[Car_RegistrationID] = Car.RegistrationID) and (Has_Features.AC = " + acvar + ") and (Has_Features.PowerSteering = " + psteervar + ") and (Has_Features.PowerLocks = " + plockvar + ") and (Has_Features.PowerWindows = " + pwindowsvar + ") and (Has_Features.PaddleShifters = " + pshiftervar + ") and (Has_Features.Airbags = " + airbagvar + ") and (Has_Features.[ABS] = " + absbrakesvar + ") and (Has_Features.Sunroof = " + sunroofvar + ") and (Has_Features.Infotainment = " + infotainvar + ") and (Has_Features.[FM/AM] = " + fmamvar + ");");
             dataGridView2.DataSource = d;
         }
         
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
             minyear.MaxLength = 4;
+            
            
         }
         
@@ -140,6 +141,10 @@ namespace DBMS_Project
             {
                 e.Handled = true;
                 minpricevar = Convert.ToInt32(minprice.Text);
+                if (minpricevar < 1990)
+                {
+                    MessageBox.Show("Error", "Sorry we don't have cars that old. Please Search for a car newer than 1990.");
+                }
             }
 
             
@@ -152,6 +157,10 @@ namespace DBMS_Project
             {
                 e.Handled = true;
                 maxpricevar = Convert.ToInt32(maxyear.Text);
+                if (maxpricevar > 2020)
+                {
+                    MessageBox.Show("Error", "Sorry! We can't sell cars that aren't released. Try searching for 'older' cars.");
+                }
             }
             
         }
